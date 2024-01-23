@@ -123,6 +123,8 @@ public class Decryptor {
                 this.decryptedText = null;
                 System.out.println(BRUTE_FAIL);
             }
+            System.out.println("Press Enter to Continue...");
+            new Scanner(System.in).nextLine();
 
             for (int i = 0; i < fr.size(); i++) {
                 fr.get(i).close();
@@ -150,7 +152,7 @@ public class Decryptor {
 
         String directoryPath = "src\\Decrypted\\Brute Candidates\\";
         File directory = new File(directoryPath);
-        if (directory.exists() && directory.isDirectory()) {
+        if (directory.isDirectory()) {
             File[] files = directory.listFiles();
             if (files != null) {
                 for (File file : files) {
@@ -212,8 +214,10 @@ public class Decryptor {
             e.printStackTrace();
         }
         System.out.println("File Successfully Saved As " + fileName);
-        System.out.print("Press Enter to Continue...");
-        new Scanner(System.in).nextLine();
+        if (!caller.equals("BruteForce")) {
+            System.out.print("Press Enter to Continue...");
+            new Scanner(System.in).nextLine();
+        }
     }
 
 }
