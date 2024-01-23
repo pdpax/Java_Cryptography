@@ -15,6 +15,7 @@ public class Encryptor {
 
 
     public static void encryption() {
+        createFolder();
         Encryptor encryptor = new Encryptor();
         System.out.print(SELECT_SOURCE);
         int source = UserInput.getInt(1, 2);
@@ -23,6 +24,14 @@ public class Encryptor {
         encryptor.key = UserInput.getInt(1, ASCII_LENGTH - 1);
         encryptor.encrypt();
         encryptor.printToFile();
+    }
+
+    private static void createFolder() {
+        String folderPath = "src\\Encrypted";
+        File folder = new File(folderPath);
+        if (!folder.exists()) {
+            folder.mkdir();
+        }
     }
 
     private void encrypt() {

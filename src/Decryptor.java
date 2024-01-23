@@ -23,6 +23,7 @@ public class Decryptor {
 
 
     public static void decryption() {
+        createFolder();
         Decryptor decryptor = new Decryptor();
         System.out.print(SELECT_SOURCE);
         int source = UserInput.getInt(1, 2);
@@ -38,6 +39,18 @@ public class Decryptor {
         } else {
             System.out.println("UNDER DEVELOPMENT!");
             decryptor.statisticalAnalysis();
+        }
+    }
+    private static void createFolder() {
+        String folderPath = "src\\Decrypted\\";
+        File folder = new File(folderPath);
+        if (!folder.exists()) {
+            folder.mkdir();
+        }
+        folderPath = "src\\Decrypted\\Brute Candidates\\";
+        folder = new File(folderPath);
+        if (!folder.exists()) {
+            folder.mkdir();
         }
     }
 
